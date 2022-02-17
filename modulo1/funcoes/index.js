@@ -57,11 +57,11 @@ const testePar = function(a) {
 console.log(testePar(10));
 
 // d)
-function imprimeMensagem(texto) {
+function imprimirMensagem(texto) {
    console.log(`${texto.length}\n${texto.toUpperCase()}`);
 };
 
-imprimeMensagem('Socorram-me, subi no ônibus em Marrocos');
+imprimirMensagem('Socorram-me, subi no ônibus em Marrocos');
 
 // 3. Resposta:
 function funcaoSoma(x, y) {
