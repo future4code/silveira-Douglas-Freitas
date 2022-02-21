@@ -101,7 +101,7 @@ compras(carrinho, fruta3);
 console.log(carrinho);
 
 // Desafios
-/*
+
 // 1. Reposta
 function dadosDoUsuario() {
    let dados = {};
@@ -112,7 +112,7 @@ function dadosDoUsuario() {
 };
 
 dadosDoUsuario();
-*/
+
 // 2. Resposta
 const testeFilme = (filme1,filme2) => {
    console.log(`O primeiro filme foi lançado antes do segundo? ${filme1.lancamento < filme2.lancamento}\nO primeiro filme foi lançado no mesmo ano do segundo?${filme1.lancamento == filme2.lancamento}`);
