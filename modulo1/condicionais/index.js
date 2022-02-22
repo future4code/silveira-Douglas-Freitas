@@ -26,7 +26,7 @@ c) Evidentemente, sim! A variável `mensagem` foi declarada como `let` dentro do
 */
 
 // Exercícios de escrita de código
-/*
+
 // 1. Respostas:
 // a), b)
 const idadeDoUsuario = Number(prompt(`Qual é a sua idade?`));
@@ -94,7 +94,7 @@ if (generoDoFilme === `fantasia` && valorDoIngresso < 15) {
 } else {
    console.log(`Escolha outro filme :(`);
 };
-*/
+
 // 2. Resposta:
 function carinhoDeCompras(banco) {
    let dadosDaCompra = {};
