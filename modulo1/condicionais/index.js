@@ -26,7 +26,7 @@ c) Evidentemente, sim! A variável `mensagem` foi declarada como `let` dentro do
 */
 
 // Exercícios de escrita de código
-
+/*
 // 1. Respostas:
 // a), b)
 const idadeDoUsuario = Number(prompt(`Qual é a sua idade?`));
@@ -94,7 +94,7 @@ if (generoDoFilme === `fantasia` && valorDoIngresso < 15) {
 } else {
    console.log(`Escolha outro filme :(`);
 };
-
+*/
 // 2. Resposta:
 function carinhoDeCompras(banco) {
    let dadosDaCompra = {};
@@ -117,36 +117,42 @@ function carinhoDeCompras(banco) {
    ).toLowerCase().trim();
 
    dadosDaCompra.categoria = +prompt('Escolha a categoria:\n' +
-      '1 - R$ ' + (banco[dadosDaCompra.etapa].precos[0]*banco[dadosDaCompra.tipo].dolar).toFixed(2).replaceAll('.',',') + '\n' +
-      '2 - R$ ' + (banco[dadosDaCompra.etapa].precos[1]*banco[dadosDaCompra.tipo].dolar).toFixed(2).replaceAll('.',',') + '\n' +
-      '3 - R$ ' + (banco[dadosDaCompra.etapa].precos[2]*banco[dadosDaCompra.tipo].dolar).toFixed(2).replaceAll('.',',') + '\n' +
-      '4 - R$ ' + (banco[dadosDaCompra.etapa].precos[3]*banco[dadosDaCompra.tipo].dolar).toFixed(2).replaceAll('.',',')
+      '1 - R$ ' + banco[dadosDaCompra.etapa].precos[0] + '\n' +
+      '2 - R$ ' + banco[dadosDaCompra.etapa].precos[1] + '\n' +
+      '3 - R$ ' + banco[dadosDaCompra.etapa].precos[2] + '\n' +
+      '4 - R$ ' + banco[dadosDaCompra.etapa].precos[3]
    );
 
    dadosDaCompra.quantidade = +prompt(
       'Informe a quantidade de ingressos:'
    );
 
-   dadosDaCompra.valorUnitario = banco[dadosDaCompra.etapa].precos[dadosDaCompra.categoria]*banco[dadosDaCompra.tipo].dolar;
+   dadosDaCompra.valorUnitario = banco[dadosDaCompra.etapa].precos[dadosDaCompra.categoria]*banco[dadosDaCompra.tipo].conversao;
    dadosDaCompra.valorTotal = dadosDaCompra.valorUnitario*dadosDaCompra.quantidade;
-
+   
    console.log(
-      'Olá, ' + dadosDaCompra.nome + '!\n' +
+      '--- Dados da compra ---\n' +
+      'Nome do(a) cliente: ' + dadosDaCompra.nome + '\n' +
       'Tipo de jogo: ' + banco[dadosDaCompra.tipo].etiqueta + '\n' +
       'Etapa do jogo: ' + banco[dadosDaCompra.etapa].etiqueta + '\n' +
       'Categoria: ' + dadosDaCompra.categoria + '\n' +
-      'Valor unitário: R$ ' + dadosDaCompra.valorUnitario.toFixed(2).replaceAll('.',',') + '\n' +
-      'Valor total: R$ ' + dadosDaCompra.valorTotal.toFixed(2).replaceAll('.',',')
+      'Quantidade: ' + dadosDaCompra.quantidade + ' ingresso(s)\n' +
+      '------- Valores -------\n' +
+      'Valor unitário: ' + banco[dadosDaCompra.tipo].moeda + dadosDaCompra.valorUnitario + '\n' +
+      'Valor total: ' + banco[dadosDaCompra.tipo].moeda + dadosDaCompra.valorTotal + '\n' +
+      '-----------------------'
    );
 };
 
 const bancoDeDados = {
    in: {
-      dolar: 4.1,
+      moeda: 'US$ ',
+      conversao: 1/4.1,
       etiqueta: `IN - Internacional`
    },
    do: {
-      dolar: 1,
+      moeda: 'R$ ',
+      conversao: 1,
       etiqueta: `DO - Doméstico`
    },
    sf: {
