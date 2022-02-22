@@ -26,7 +26,7 @@ c) Evidentemente, sim! A variável `mensagem` foi declarada como `let` dentro do
 */
 
 // Exercícios de escrita de código
-
+/*
 // 1. Respostas:
 // a), b)
 const idadeDoUsuario = Number(prompt(`Qual é a sua idade?`));
@@ -94,79 +94,46 @@ if (generoDoFilme === `fantasia` && valorDoIngresso < 15) {
 } else {
    console.log(`Escolha outro filme :(`);
 };
-
+*/
 // 2. Resposta:
-function carinhoDeCompras(banco) {
-   let dadosDaCompra = {};
-   
-   dadosDaCompra.nome = prompt(
-      'Informe seu nome:'
-   ).trim();
-   
-   dadosDaCompra.tipo = prompt(
-      'Escolha o tipo de jogo\n' +
-      banco.in.etiqueta + '\n' +
-      banco.do.etiqueta
-   ).toLowerCase().trim();
-   
-   dadosDaCompra.etapa = prompt(
-      'Escolha a etapa do jogo:\n' +
-      banco.sf.etiqueta + '\n' +
-      banco.dt.etiqueta + '\n' +
-      banco.fi.etiqueta
-   ).toLowerCase().trim();
-
-   dadosDaCompra.categoria = +prompt('Escolha a categoria:\n' +
-      '1 - R$ ' + banco[dadosDaCompra.etapa].precos[0] + '\n' +
-      '2 - R$ ' + banco[dadosDaCompra.etapa].precos[1] + '\n' +
-      '3 - R$ ' + banco[dadosDaCompra.etapa].precos[2] + '\n' +
-      '4 - R$ ' + banco[dadosDaCompra.etapa].precos[3]
-   );
-
-   dadosDaCompra.quantidade = +prompt(
-      'Informe a quantidade de ingressos:'
-   );
-
-   dadosDaCompra.valorUnitario = banco[dadosDaCompra.etapa].precos[dadosDaCompra.categoria]*banco[dadosDaCompra.tipo].conversao;
-   dadosDaCompra.valorTotal = dadosDaCompra.valorUnitario*dadosDaCompra.quantidade;
-   
-   console.log(
-      '--- Dados da compra ---\n' +
-      'Nome do(a) cliente: ' + dadosDaCompra.nome + '\n' +
-      'Tipo de jogo: ' + banco[dadosDaCompra.tipo].etiqueta + '\n' +
-      'Etapa do jogo: ' + banco[dadosDaCompra.etapa].etiqueta + '\n' +
-      'Categoria: ' + dadosDaCompra.categoria + '\n' +
-      'Quantidade: ' + dadosDaCompra.quantidade + ' ingresso(s)\n' +
-      '------- Valores -------\n' +
-      'Valor unitário: ' + banco[dadosDaCompra.tipo].moeda + dadosDaCompra.valorUnitario + '\n' +
-      'Valor total: ' + banco[dadosDaCompra.tipo].moeda + dadosDaCompra.valorTotal + '\n' +
-      '-----------------------'
-   );
-};
-
 const bancoDeDados = {
-   in: {
-      moeda: 'US$ ',
-      conversao: 1/4.1,
-      etiqueta: `IN - Internacional`
-   },
-   do: {
-      moeda: 'R$ ',
-      conversao: 1,
-      etiqueta: `DO - Doméstico`
-   },
-   sf: {
-      precos: [1320, 880, 550, 220],
-      etiqueta: `SF - Semifinal`
-   },
-   dt: {
-      precos: [660, 440, 330, 170],
-      etiqueta: `DT - Decisão do 3° lugar`
-   },
-   fi: {
-      precos: [1980, 1320, 880, 330],
-      etiqueta: `FI - Final`
-   }
+   in: {cambio: 4.1, moeda: `US$`, etiqueta: `IN - Internacional`},
+   do: {cambio: 1, moeda: `R$`, etiqueta: `DO - Doméstico`},
+   fi: {precos: [1980, 1320, 880, 330], etiqueta: `FI - Final`},
+   sf: {precos: [1320, 880, 550, 220], etiqueta: `SF - Semifinal`},
+   dt: {precos: [660, 440, 330, 170], etiqueta: `DT - Disputa do 3º lugar`}
 };
 
-carinhoDeCompras(bancoDeDados);
+let dadosDaCompra = {};
+
+dadosDaCompra.nome = prompt(`Informe o seu nome:`);
+
+dadosDaCompra.tipo = prompt(`Escolha o tipo de jogo:
+${bancoDeDados.in.etiqueta}
+${bancoDeDados.do.etiqueta}`).toLowerCase();
+
+dadosDaCompra.etapa = prompt(`Escolha a etapa do jogo:
+${bancoDeDados.fi.etiqueta}
+${bancoDeDados.sf.etiqueta}
+${bancoDeDados.dt.etiqueta}`).toLowerCase();
+
+dadosDaCompra.categoria = +prompt(`Escolha a categoria:
+1 - ${bancoDeDados[dadosDaCompra.tipo].moeda} ${(bancoDeDados[dadosDaCompra.etapa].precos[0]/bancoDeDados[dadosDaCompra.tipo].cambio).toFixed(2).replace('.',',')}
+2 - ${bancoDeDados[dadosDaCompra.tipo].moeda} ${(bancoDeDados[dadosDaCompra.etapa].precos[1]/bancoDeDados[dadosDaCompra.tipo].cambio).toFixed(2).replace('.',',')}
+3 - ${bancoDeDados[dadosDaCompra.tipo].moeda} ${(bancoDeDados[dadosDaCompra.etapa].precos[2]/bancoDeDados[dadosDaCompra.tipo].cambio).toFixed(2).replace('.',',')}
+4 - ${bancoDeDados[dadosDaCompra.tipo].moeda} ${(bancoDeDados[dadosDaCompra.etapa].precos[3]/bancoDeDados[dadosDaCompra.tipo].cambio).toFixed(2).replace('.',',')}`);
+
+dadosDaCompra.quantidade = +prompt(`Informe a quantidade de ingressos:`);
+
+dadosDaCompra.valorUnitario = bancoDeDados[dadosDaCompra.etapa].precos[dadosDaCompra.categoria - 1]/bancoDeDados[dadosDaCompra.tipo].cambio;
+dadosDaCompra.valorTotal = dadosDaCompra.valorUnitario*dadosDaCompra.quantidade;
+
+console.log(`--- Dados da compra ---
+Nome do cliente: ${dadosDaCompra.nome}
+Tipo do jogo: ${bancoDeDados[dadosDaCompra.tipo].etiqueta.substring(5)}
+Etapa do jogo: ${bancoDeDados[dadosDaCompra.etapa].etiqueta.substring(5)}
+Categoria: ${dadosDaCompra.categoria}
+Quantidade de ingressos: ${dadosDaCompra.quantidade} ingressos
+--- Valores ---
+Valor do ingresso: ${bancoDeDados[dadosDaCompra.tipo].moeda} ${dadosDaCompra.valorUnitario.toFixed(2).replace('.',',')}
+Valor total: ${bancoDeDados[dadosDaCompra.tipo].moeda} ${dadosDaCompra.valorTotal.toFixed(2).replace('.',',')}`);
