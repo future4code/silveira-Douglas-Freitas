@@ -8,12 +8,12 @@ O código abaixo soma os valores dos número inteiros do intervalo [0, 5). O res
 2. Resposta:
 a) Serão impressos os números que pertencem ao array 'lista' e são maiores que 18.
 
-b) Sim. Dentre as possibilidades, aquela que julgo melhor utilizar é o método indexOf(), da seguite forma:
+b) Dentre as possibilidades, aquela que julgo melhor utilizar é o método indexOf(), da seguinte forma:
 
 const lista = [10, 11, 12, 15, 18, 19, 21, 23, 25, 27, 30];
 for (let numero of lista) {
   if (numero > 18) {
-		console.log(lista.indexOf(numero), numero);
+		console.log(numero, lista.indexOf(numero));
 	};
 };
 
@@ -88,10 +88,10 @@ console.log(`O maior número é ${maximo} e o menor é ${minimo}`);
 // Desafios
 
 // 1. Resposta:
-function jogoOriginal() {
-   let numero = +prompt(`Digite um número secreto:`);
+function jogoAdivinhaNumero(numeroSecreto) {
    let palpite;
 
+   console.log(numeroSecreto);
    console.log(`Vamos jogar um jogo!`);
 
    tentativas = 0;
@@ -99,52 +99,27 @@ function jogoOriginal() {
       palpite = +prompt(`Adivinhe o número secreto:`);
       console.log(`Seu chute foi ${palpite}!`);
 
-      if (palpite < numero) {
+      if (palpite < numeroSecreto) {
          console.log(`Errrrrrrrou, o número secreto é maior!`);
-      } else if (palpite > numero) {
+      } else if (palpite > numeroSecreto) {
          console.log(`Errrrrrrrou, o número secreto é menor!`);
       };
 
       tentativas++;
-   } while (palpite != numero);
+   } while (palpite != numeroSecreto);
 
    console.log(`Acertou!!!`);
    console.log(`Tentativas: ${tentativas}`);
 };
 
-jogoOriginal();
+jogoAdivinhaNumero(+prompt(`Digite um número secreto:`));
 
 // 2. Resposta:
-function jogoModificado() {
-   let numero = Math.floor(Math.random() * 99) + 1;
-   let palpite;
 
-   // console.log(numero);
-   console.log(`Vamos jogar um jogo!`);
-
-   tentativas = 0;
-   do {
-      palpite = +prompt(`Adivinhe o número secreto:`);
-      
-      console.log(`Seu chute foi ${palpite}!`);
-
-      if (palpite < numero) {
-         console.log(`Errrrrrrrou, o número secreto é maior!`);
-      } else if (palpite > numero) {
-         console.log(`Errrrrrrrou, o número secreto é menor!`);
-      };
-
-      tentativas++;
-   } while (palpite != numero);
-
-   console.log(`Acertou!!!`);
-   console.log(`Tentativas: ${tentativas}`);
-};
-
-jogoModificado();
+jogoAdivinhaNumero(Math.floor(Math.random() * 99) + 1);
 
 /*
 
-A alteração foi extremamente simples. Bastou remover o input via prompt, feito pelo 1º jogador, e solicitar que o computador gerasse um número aleatório. Existem muitos algoritmos para gerar números pseudo-aleatórios; entretanto, o método mais prático em JS é utilizar as propriedades floor() e random() do objeto Math.
+A alteração foi extremamente simples. Bastou remover o input via prompt, feito pelo 1º jogador, e solicitar que o computador gerasse um número aleatório. Existem muitos algoritmos para gerar números pseudo-aleatórios; entretanto, o método mais prático no JS é utilizar as propriedades floor() e random() do objeto Math.
 
 */
