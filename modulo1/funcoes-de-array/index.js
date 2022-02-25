@@ -91,7 +91,6 @@ const nomesDosPokemons = pokemons.map(item => item.nome).sort();
 console.log(nomesDosPokemons);
 
 // b)
-const listaDosTipos = pokemons.map(item => item.tipo).filter((item, indice, array) => {
-   return array.indexOf(item) == indice;
-});
-console.log(listaDosTipos); 
+const listaDosTipos = [...new Set(pokemons.map(item => item.tipo))];
+console.log(listaDosTipos);
+
