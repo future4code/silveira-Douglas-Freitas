@@ -18,7 +18,7 @@ const fonte = 'font-size: 15px';
 let cartasDoUsuario, cartasDoComputador, maisCartas, novoJogo;
 
 // Mensagem de saudação no console
-console.log(`%cBoas vindas ao jogo de Blackjack!`, fonte);
+alert(`Boas vindas ao jogo de Blackjack!`);
 
 // Laço para repetir o jogo
 do {
@@ -56,7 +56,7 @@ do {
       novoJogo = true;
    } else {
       // Fim do jogo
-      console.log(`%cO jogo acabou!`, fonte);
+      alert(`O jogo acabou!`);
       novoJogo = false;
    };
 } while (novoJogo == true);
