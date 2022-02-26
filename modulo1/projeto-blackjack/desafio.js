@@ -13,47 +13,67 @@
 
 // ==================================================
 
-// Declaração das variáveis
+// Declaração de variáveis
 const fonte = 'font-size: 15px';
-let cartasDoUsuario, cartasDoComputador, maisCartas;
+let cartasDoUsuario, cartasDoComputador, maisCartas, novoJogo;
 
-// Mensagem inicial no console
+// Mensagem de saudação no console
 console.log(`%cBoas vindas ao jogo de Blackjack!`, fonte);
 
-// Distribuição das cartas para o Usuário e o Computador
-// Verifica repetição das cartas A (ás) e, caso true, distribuiu novas cartas 
+// Laço para repetir o jogo
 do {
-   cartasDoUsuario = [];
-   cartasDoComputador = [];
-   for (let i = 0; i < 2; i++) {
-      cartasDoUsuario.push(comprarCarta());
-      cartasDoComputador.push(comprarCarta());
-   };
-} while (cartasDoUsuario[0].valor + cartasDoUsuario[1].valor == 22 || cartasDoComputador[0].valor + cartasDoComputador[1].valor == 22);
+   // Início do jogo
+   if (confirm(`Quer iniciar uma nova rodada?`)) {
+      // Início da nova rodada
+      do {
+         // Distribuição (pseudo)aleatória de cartas
+         cartasDoUsuario = [];
+         cartasDoComputador = [];
+         for (let i = 0; i < 2; i++) {
+            cartasDoUsuario.push(fixComprarCarta(cartasDoUsuario.concat(cartasDoComputador)));
+            cartasDoComputador.push(fixComprarCarta(cartasDoUsuario.concat(cartasDoComputador)));
+         };
+      } while (somarCartas(cartasDoUsuario) == 22 || somarCartas(cartasDoComputador) == 22);
 
-// Compra de mais cartas pelo Usuário
-// Verifica se a soma das cartas não é maior que 21
-do {
-   if (confirm(`Suas cartas são ${exibirCartas(cartasDoUsuario)}. A carta revelada do computador é [${cartasDoComputador[0].texto}].\nDeseja comprar mais uma carta?`)) {
-      cartasDoUsuario.push(comprarCarta());
-      maisCartas = true;
+      do {
+         // Compra de mais cartas pelo usuário
+         if (confirm(`Suas cartas são ${exibirCartas(cartasDoUsuario)}. A carta revelada do computador é [${cartasDoComputador[0].texto}].\nDeseja comprar mais uma carta?`)) {
+            cartasDoUsuario.push(comprarCarta());
+            maisCartas = true;
+         } else {
+            maisCartas = false;
+         };
+      } while (maisCartas == true && somarCartas(cartasDoUsuario) <= 21);
+
+         // Compra de mais cartas pelo computador
+         while (somarCartas(cartasDoComputador) < somarCartas(cartasDoUsuario) && somarCartas(cartasDoUsuario) <= 21) {
+            cartasDoComputador.push(comprarCarta());
+         };
+
+         // Mensagens com o resultado no fim de cada rodada
+         alert(finalDaRodada([cartasDoUsuario, cartasDoComputador], exibirCartas, somarCartas));
+
+      novoJogo = true;
    } else {
-      maisCartas = false;
+      // Fim do jogo
+      console.log(`%cO jogo acabou!`, fonte);
+      novoJogo = false;
    };
-} while (maisCartas == true && somarCartas(cartasDoUsuario) <= 21);
-
-// IF -> Vitória do Computador, exibe mensagem
-// ELSE -> Compra de mais cartas pelo Computador 
-if (somarCartas(cartasDoUsuario) > 21) {
-   alert(`Suas cartas são ${exibirCartas(cartasDoUsuario)}. Sua pontuação é ${somarCartas(cartasDoUsuario)}.\nAs cartas do computador são ${exibirCartas(cartasDoComputador)}. A pontuação do computador é ${somarCartas(cartasDoComputador)}.\nO computador ganhou!`)
-} else {
-   
-
-
-};
+} while (novoJogo == true);
 
 // ==================================================
 
+// Função que corrige a função 'comprarCarta()' do arquivo 'naoMexer.js', uma vez que a função 'comprarCarta()' permite o sorteio de cartas repetidas ─ mesmo valor e naipe
+function fixComprarCarta(cartas) {
+   let carta = comprarCarta();
+   
+   if (cartas.map(item => item.texto).includes(carta.texto) && cartas.length != 0) {
+      carta = fixComprarCarta(cartas);
+   };
+   return carta;
+};
+
+// Função para exibir o naipe das cartas
 function exibirCartas(cartas) {
    let texto = ``;
    for (let i = 0; i < cartas.length; i++) {
@@ -62,7 +82,22 @@ function exibirCartas(cartas) {
    return texto.slice(0, -1);
 };
 
+// Função para somar o valor das cartas
 function somarCartas(cartas) {
-   return cartas.map(item => item.valor).reduce((soma, numero) => soma += numero);
+   return cartas.reduce((soma, numero) => soma += numero.valor, 0);
 };
 
+// Função para exibir mensagem final da rodada
+function finalDaRodada(cartas, exibir, somar) {
+   let texto = `Suas cartas são ${exibir(cartas[0])}. Sua pontuação é ${somar(cartas[0])}.\nAs cartas do computador são ${exibir(cartas[1])}. A pontuação do computador é ${somar(cartas[1])}.`
+
+   if (somar(cartas[0]) > somar(cartas[1]) && somar(cartas[0]) <= 21 || somar(cartas[1]) > 21) {
+      return texto += `\nO usuário ganhou!`;
+   } else if (somar(cartas[0]) < somar(cartas[1]) && somar(cartas[1]) <= 21 || somar(cartas[0]) > 21) {
+      return texto += `\nO computador ganhou!`;
+   } else {
+      return texto += `\nEmpate!`;
+   };
+};
+
+// ==================================================
