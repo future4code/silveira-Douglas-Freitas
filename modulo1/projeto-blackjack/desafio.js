@@ -17,7 +17,7 @@
 const fonte = 'font-size: 15px';
 let cartasDoUsuario, cartasDoComputador, maisCartas, novoJogo;
 
-// Mensagem de saudação no console
+// Mensagem de saudação
 alert(`Boas vindas ao jogo de Blackjack!`);
 
 // Laço para repetir o jogo
