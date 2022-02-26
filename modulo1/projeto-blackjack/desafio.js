@@ -38,7 +38,7 @@ do {
       do {
          // Compra de mais cartas pelo usuário
          if (confirm(`Suas cartas são ${exibirCartas(cartasDoUsuario)}. A carta revelada do computador é [${cartasDoComputador[0].texto}].\nDeseja comprar mais uma carta?`)) {
-            cartasDoUsuario.push(comprarCarta());
+            cartasDoUsuario.push(fixComprarCarta(cartasDoUsuario.concat(cartasDoComputador)));
             maisCartas = true;
          } else {
             maisCartas = false;
@@ -47,7 +47,7 @@ do {
 
          // Compra de mais cartas pelo computador
          while (somarCartas(cartasDoComputador) < somarCartas(cartasDoUsuario) && somarCartas(cartasDoUsuario) <= 21) {
-            cartasDoComputador.push(comprarCarta());
+            cartasDoComputador.push(fixComprarCarta(cartasDoUsuario.concat(cartasDoComputador)));
          };
 
          // Mensagens com o resultado no fim de cada rodada
