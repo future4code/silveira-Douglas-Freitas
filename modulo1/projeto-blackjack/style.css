@@ -10,4 +10,16 @@ body {
 
 button {
    font-family: 'Fira Sans Condensed', sans-serif;
+   background-color: orange;
+   border: none;
+   border-radius: 5px;
+   width: 50px;
+   height: 25px;
+   font-weight: bold;
+   padding: auto;
+}
+
+hr {
+   border: 3px solid orange;
+   border-radius: 5px;
 }
