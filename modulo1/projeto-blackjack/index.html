@@ -7,16 +7,23 @@
     <link href="./style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>ENTRE NO CONSOLE PARA VER O RESULTADO</h1>
-    <p>Para entrar no <strong>Console</strong> você pode usar 4 maneiras diferentes:</p>
-    <ol>
-      <li>Tecle <strong>F12</strong> e, em seguida, clique na aba <strong>Console</strong></li>
-      <li>Tecle <strong>Ctrl + Shift + I</strong> e, em seguida, clique na aba <strong>Console</strong></li>
-      <li>Clique com o <strong>botão direito do mouse</strong>, escolha a opção <strong>Inspecionar</strong> e clique na aba <strong>Console</strong></li>
-      <li>Abra o menu do navegador, escolha a opção <strong>Mais ferramentas > Ferramentas de desenvolvedor</strong> e clique na aba <strong>Console</strong></li>
-      </ol>
-    <script type="application/javascript" src="./naoMexer.js"></script>
-    <!-- <script defer type="application/javascript" src="./nossoJogo.js"></script> -->
-    <script defer type="application/javascript" src="./desafio.js"></script>
+    <div>
+      <h1>Projeto de Fixação: Blackjack</h1>
+      
+      <p>Projeto de fixação dos conteúdos de introdução ao JavaScript, desenvolvido no Curso Web Full Stack da <a href="https://www.labenu.com.br/">Labenu</a>. A implementação tem apenas fins didáticos, sendo uma versão simplificada do jogo de cartas <a href="https://www.youtube.com/watch?v=IQtSQ80sLHM">Blackjack</a>. As simplificações são o valor do ás (A) fixo em 11 pontos e a possibilidade de apenas um jogador vs. computador por rodada.</p>
+    </div>
+    
+    <div>
+      <hr size="7" width="100%" align="center" noshade color="orange">
+      <h3 id="mensagemResultado">👇👀</h3>
+      <p id="mensagemMesa"></p>
+      <p id="mensagemUsuario">Aaah! Você ativou o arquivo <i>nossoJogo.js</i>. 🙄<br>Para jogar tecle <b>F12</b> e acesse a aba <b>Console</b>.</p>
+      <button class="buttom" id="botaoSim" onclick="cliqueSim()" disabled>Sim</button>
+      <button class="buttom" id="botaoNao" onclick="cliqueNao()" disabled>Não</button>
+    </div>
+
+    <script type="text/javascript" src="./naoMexer.js"></script>
+    <!-- <script type="text/javascript" src="./nossoJogo.js"></script> -->
+    <script type="text/javascript" src="./desafio.js"></script>
   </body>
 </html>

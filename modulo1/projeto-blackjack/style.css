@@ -1,6 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
 
 body {
-   font-family: 'Fira Sans Extra Condensed', sans-serif;
-   background-color: rgba(255, 150, 0, 0.75);
+   margin: auto;
+   max-width: 90%;
+   font-family: 'Fira Sans Condensed', sans-serif;
+   text-align: center;
+   /* background-color: #f9b24e; */
+}
+
+button {
+   font-family: 'Fira Sans Condensed', sans-serif;
 }
