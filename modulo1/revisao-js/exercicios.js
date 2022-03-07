@@ -91,14 +91,17 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
    let novoArray = array.sort((a, b) => a - b);
-
    return [novoArray[novoArray.length-2], novoArray[1]];
 };
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
-}
+   let texto = `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por`;
+   for (item of filme.atores) {
+      texto += ` ${item},`;
+   };
+   return texto.slice(0,-1) + '.';
+};
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
