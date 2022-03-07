@@ -35,7 +35,7 @@ function retornaArrayOrdenado(array) {
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
    let novoArray = new Array;
-   for (item of array) {
+   for (let item of array) {
       if (item % 2 == 0) {
          novoArray.push(item);
       };
@@ -97,7 +97,7 @@ function retornaSegundoMaiorESegundoMenor(array) {
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
    let texto = `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por`;
-   for (item of filme.atores) {
+   for (let item of filme.atores) {
       texto += ` ${item},`;
    };
    return texto.slice(0,-1) + '.';
@@ -124,8 +124,12 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
-
-}
+   for (let item of contas) {
+      item.saldoTotal -= item.compras.reduce((soma, numero) => soma += numero, 0);
+      item.compras = [];
+   };
+   return contas;
+};
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
