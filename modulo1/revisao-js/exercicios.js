@@ -133,10 +133,16 @@ function retornaContasComSaldoAtualizado(contas) {
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
-}
+   const classificador = new Intl.Collator();
+   return consultas.sort((a, b) => classificador.compare(a.nome, b.nome));
+};
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
-}
+   const valorDaData = data => {
+      const partes = data.split('/');
+      const novaData = new Date(partes[2], partes[1], partes[0]);
+      return novaData.getTime(); 
+   };
+   return consultas.sort((a, b) => valorDaData(a.dataDaConsulta) - valorDaData(b.dataDaConsulta));
+};
