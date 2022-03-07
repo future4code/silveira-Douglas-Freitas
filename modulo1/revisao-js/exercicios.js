@@ -19,8 +19,18 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
-}
+   let continuar = true;
+   while (continuar) {
+      continuar = false;
+      for (let i = 1; i < array.length; i++) {
+         if (array[i-1] > array[i]) {
+            [array[i-1], array[i]] = [array[i], array[i-1]];
+            continuar = true;
+         };
+      };
+   };
+   return array;
+};
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
