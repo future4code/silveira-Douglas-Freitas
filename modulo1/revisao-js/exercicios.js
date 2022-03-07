@@ -61,8 +61,12 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-
-}
+   let objeto = new Object;
+   objeto['maiorNumero'] = Math.max(num1, num2);
+   objeto['maiorDivisivelPorMenor'] = Math.max(num1, num2) % Math.min(num1, num2) == 0;
+   objeto['diferenca'] = Math.abs(num1-num2);
+   return objeto;
+};
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
