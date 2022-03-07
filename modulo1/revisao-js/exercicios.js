@@ -50,8 +50,14 @@ function retornaNumerosParesElevadosADois(array) {
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
-}
+   let maximo = array[0];
+   for (let i = 1; i < array.length; i++) {
+      if (array[i] > maximo) {
+         maximo = array[i];
+      };
+   };
+   return maximo;
+};
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
