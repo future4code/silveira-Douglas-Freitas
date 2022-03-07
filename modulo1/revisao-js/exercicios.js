@@ -34,8 +34,14 @@ function retornaArrayOrdenado(array) {
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
-}
+   let novoArray = new Array;
+   for (item of array) {
+      if (item % 2 == 0) {
+         novoArray.push(item);
+      };
+   };
+   return novoArray;
+};
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
