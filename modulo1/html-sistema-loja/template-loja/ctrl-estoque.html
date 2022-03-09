@@ -2,68 +2,77 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
-    <title>Controle de Estoque_</title>
+    <title>Controle de Estoque</title>
 </head>
 <body style="font-family: monospace">
 
-    <div>
-        <p>📚 <strong>Codebooks_</strong> >> DESENVOLVA A SUA MENTE</p><hr>
-        <a style="text-decoration: none;" href="./index.html">PÁGINA INICIAL</a>&nbsp;|
-        <a style="text-decoration: none;" href="./ctrl-estoque.html">CONTROLE DE ESTOQUE</a>&nbsp;|
-        <a style="text-decoration: none;" href="./add-produto.html">ADICIONAR PRODUTO</a>&nbsp;|
-        <a style="text-decoration: none;" href="./funcionarios.html">FUNCIONÁRIOS</a><hr>
-    </div>
+    <!-- CABEÇALHO DA PÁGINA -->
+    <header>
+        <div>
+            <p>
+                📚 <strong>codebooks_</strong>  >> DESENVOLVA A SUA MENTE <hr>
+            </p>
+            <a href="./index.html">PÁGINA INICIAL</a>&nbsp;|
+            <a href="./ctrl-estoque.html">CONTROLE DE ESTOQUE</a>&nbsp;|
+            <a href="./add-produto.html">ADICIONAR PRODUTO</a>&nbsp;|
+            <a href="./funcionarios.html">FUNCIONÁRIOS</a> <hr>
+        </div>
+    </header>
 
-    <h2>Controle de Estoque</h2>
+    <!-- CONTEÚDO DA PÁGINA -->
+    <section>
+        <h1>Controle de Estoque</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>FOTO</th>
+                    <th>DESCRIÇÃO</th>
+                    <th>PREÇO</th>
+                    <th>QUANTIDADE DISPONÍVEL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="./img/produto1.jpeg" width="150px" alt="Capa do livro Código Limpo"></td>
+                    <td>Código Limpo <br> <em>R. C. Martin (2009)</em></td>
+                    <td>R$ 72,30</td>
+                    <td>18 un.</td>
+                </tr>
+                <tr>
+                    <td><img src="./img/produto2.jpg" width="150px" alt="Capa do livro Refatoração"></td>
+                    <td>Refatoração <br> <em>M. Fowler (2020)</em></td>
+                    <td>R$ 98,90</td>
+                    <td>1 un.</td>
+                </tr>
+                <tr>
+                    <td><img src="./img/produto3.jpg" width="150px" alt="Capa do livro O Programador Pragmático"></td>
+                    <td>O Programador Pragmático <br> <em>A. Hunt; D. Thomas (2010)</em></td>
+                    <td>R$ 175,00</td>
+                    <td>6 un.</td>
+                </tr>
+                <tr>
+                    <td><img src="./img/produto4.jpg" width="150px" alt="Capa do livro Código Limpo"></td>
+                    <td>Algoritmos - Teoria e Prática <br> <em>T. H. Cormer et al. (2012)</em></td>
+                    <td>R$ 331,99</td>
+                    <td>10 un.</td>
+                </tr>
+                <!-- Crie mais uma linha desta tabela abaixo \/ -->
+                <tr>
+                    <td><img src="./img/produto5.jpg" width="150px" alt="Capa do livro Código Limpo"></td>
+                    <td>Compiladores: Princípios e Práticas <br> <em>K. C. Louden (2004)</em></td>
+                    <td>R$ 165,90</td>
+                    <td>8 un.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-    <table style="text-align: center;">
-        <tr>
-            <th style="width: 200px">Foto</th>
-            <th style="width: 600px">Descrição</th>
-            <th style="width: 150px">Preço (R$)</th>
-            <th style="width: 150px">Quantidade disponível</th>
-        </tr>
-
-        <tr>
-            <td><img src="./img/livro1.jpeg" alt="Capa do livro Código Limpo"/></td>
-            <td>Código Limpo | Robert Cecil Martin_</td>
-            <td>72,30</td>
-            <td>6 un.</td>
-        </tr>
-        <tr>
-            <td><img src="./img/livro2.jpeg" alt="Capa do livro ALgoritmos"/></td>
-            <td>Algoritmos: Teoria e Prática | Thomas H. Cormen_</td>
-            <td>331,99</td>
-            <td>1 un.</td>
-        </tr>
-
-        <tr>
-            <td><img src="./img/livro3.jpeg" alt="Capa do livro Conceitos de Linguagens de Programação"/></td>
-            <td>Conceitos de Linguagens de Programação | Robert W. Sebesta_</td>
-            <td>109,58</td>
-            <td>10 un.</td>
-        </tr>
-
-        <tr>
-            <td><img src="./img/livro4.jpeg" alt="Capa do livro Programação de Sistemas Embarcados"/></td>
-            <td>Programação de Sistemas Embarcados | Carlos Henrique Valério de Moraes_</td>
-            <td>59,90</td>
-            <td>21 un.</td>
-        </tr>
-        
-        <!-- Crie mais uma linha desta tabela abaixo \/ -->
-
-        <tr>
-            <td><img src="./img/livro5.jpeg" alt="Capa do livro Code Complete"></td>
-            <td>Code Complete | Steve McConnell_</td>
-            <td>190,00</td>
-            <td>3 un.</td>
-        </tr>
-
-    </table>
-
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer>
+        <hr> <p>&copy 2022 codebooks_ | Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
