@@ -34,6 +34,14 @@ div>p:first-child {
     display: inline;
 }
 
+div>img:hover {
+    filter: opacity(50%);
+}
+
+div>img:active {
+    filter: none;
+}
+
 .botao-amarelo {
     background-color: #ffaf43;
     width: 250px;
