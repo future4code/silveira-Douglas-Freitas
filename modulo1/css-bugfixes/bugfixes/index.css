@@ -71,6 +71,8 @@ div>p:first-child {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    margin: 0px 350px 0px 350px;
+    text-align: left;
 }
 
 #container-para-comprar {
@@ -82,6 +84,7 @@ div>p:first-child {
     padding: 100px 0;
     font-size: 60px;
 }
+
 
 
 /**
