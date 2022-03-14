@@ -119,14 +119,10 @@ body {
    margin: auto;
 }
 
-.main-left, .main-right {
-   float: left;
-   width: 50%;
-}
-
 .main-left {
    text-align: right;
    padding-right: 15px;
+   justify-self: end;
 }
 
 .main-left img {
@@ -148,11 +144,18 @@ body {
    position: relative;
    top: 50%;
    transform: translateY(-50%);
+   align-items: center;
 }
 
 .main-right h1 {
    font-family: 'IBM Plex Serif', serif;
    font-weight: bold;
+   align-items: center;
+}
+
+.div-container {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
 }
 
 /* Contato */
