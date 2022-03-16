@@ -17,6 +17,6 @@ function criarArrayNomesAnimais() {
     ];
 
     // Escreva seu código aqui
-    return animais.map(a => a.nome);
+    return animais.map(item => item.nome);
 };
 ```
