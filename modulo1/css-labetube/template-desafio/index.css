@@ -67,6 +67,13 @@ div {
     grid-column-end: span 2;
 }
 
+.blue-block, .yellow-block, .green-block, .white-block, .black-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 p, ul {
     padding: 0 20px;
 }
