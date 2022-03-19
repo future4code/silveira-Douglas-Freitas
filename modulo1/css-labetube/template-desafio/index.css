@@ -1,0 +1,107 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+}
+
+div {
+    border: 1px solid black;
+}
+
+#menu-left {
+    background-color: gray;
+    border: none;
+    min-width: 150px;
+    height: 100%;
+}
+
+#main-container {
+    background-color: aqua;
+    border: none;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+#main-container div {
+    margin: 10px;
+    padding: 10px;
+}
+
+#first-block {
+    background-color: red;
+    border: none;
+    margin: 0 !important;
+    grid-column-end: span 6;
+}
+
+.blue-block {
+    background-color: blue;
+    grid-column-end: span 2;
+}
+
+.yellow-block {
+    background-color: yellow;
+    grid-column-end: span 2;
+}
+
+.green-block {
+    background-color: green;
+    grid-column-end: span 2;
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+    grid-row-end: span 2;
+    grid-column-end: span 3;
+}
+
+.white-block {
+    background-color: white;
+    grid-column-end: span 2;
+}
+
+.blue-block, .yellow-block, .green-block, .white-block, .black-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+p, ul {
+    padding: 0 20px;
+}
+
+@media screen and (max-device-width: 1000px) {
+
+    .blue-block, .yellow-block, .white-block {
+        grid-column-end: span 3;
+    }
+
+    .green-block, .white-block:last-child {
+        grid-column-end: span 6;
+    }
+
+}
+
+@media screen and (max-device-width: 800px) {
+
+    #menu-left {
+        display: none;
+    }
+
+}
+
+@media screen and (max-device-width: 600px) {
+
+    .blue-block, .yellow-block, .green-block, .white-block, .black-block {
+        grid-column-end: span 6;
+    }
+
+}
