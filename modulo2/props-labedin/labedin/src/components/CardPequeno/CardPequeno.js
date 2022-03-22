@@ -8,37 +8,33 @@ const MyDiv = styled.div`
     border-radius: 15px;
     padding: 20px 10px;
     margin-bottom: 10px;
-    height: 200px;
+    height: 50px;
     box-shadow: 5px 5px 5px gray;
 
     img {
-        width: 70px;
+      width: 30px;
         margin-right: 10px;
         border-radius: 50%;
         border: 2px solid orange;
     }
 
-    h4 {
-        margin-bottom: -10px;
-    }
-
     div {
-        display: flex;
-        flex-direction: column;
-        justify-items: flex-start;
+      display: flex;
+      align-items: center;
+      justify-items: flex-start;
     }
 `;
 
-function CardGrande(props) {
+function CardPequeno(props) {
   return (
     <MyDiv>
       <img src={props.imagem} />
       <div>
-        <h4>{props.nome}</h4>
+        <h4>{props.nome}:&nbsp;</h4>
         <p>{props.descricao}</p>
       </div>
     </MyDiv>
   );
 }
 
-export default CardGrande;
+export default CardPequeno;
